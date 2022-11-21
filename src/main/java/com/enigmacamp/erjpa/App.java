@@ -1,6 +1,7 @@
 package com.enigmacamp.erjpa;
 
 import com.enigmacamp.erjpa.constants.Gender;
+import com.enigmacamp.erjpa.entity.GroupProject;
 import com.enigmacamp.erjpa.entity.Major;
 import com.enigmacamp.erjpa.entity.Student;
 import com.enigmacamp.erjpa.entity.UserCredential;
@@ -19,11 +20,16 @@ public class App {
 //        major.setMajorName("Accounting");
 //        majorRepository.create(major);
 
+        GroupProjectRepository groupProjectRepository = new GroupProjectRepositoryImpl(entityManager);
+//        GroupProject groupProject = new GroupProject();
+//        groupProject.setProjectName("React Framework Documentation");
+//        groupProjectRepository.create(groupProject);
+
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
-//        UserCredential userCredential = new UserCredential();
-//        userCredential.setUserName("joko");
-//        userCredential.setPassword("12345");
+        UserCredential userCredential = new UserCredential();
+        userCredential.setUserName("joko");
+        userCredential.setPassword("12345");
 //        authenticationRepository.create(userCredential);
 
 //        Student student = new Student();
@@ -34,10 +40,19 @@ public class App {
 //        student.setMajor(major);
 //        student.setUserCredential(userCredential);
 //        userCredential.setStudent(student);
+//        student.getGroupProjects().add(groupProject);
+//        groupProject.getStudents().add(student);
 //        repository.create(student);
 
+        GroupProject otherGroupProject = new GroupProject();
+        otherGroupProject.setProjectName("React Native Framework Documentation");
+        groupProjectRepository.create(otherGroupProject);
+
         Student student = repository.findOne(1);
-        System.out.println(student.getMajor().getMajorName());
+        student.getGroupProjects().add(otherGroupProject);
+        otherGroupProject.getStudents().add(student);
+        repository.update(student);
+//        System.out.println(student.getMajor().getMajorName());
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        userCredential.setStudent(student);

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906080fb-9199-4fe3-a033-818df666d6a8" name="Changes" comment="One-to-many relationship">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/GroupProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/repository/GroupProjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/repository/GroupProjectRepositoryImpl.java" afterDir="false" />
+    <list default="true" id="906080fb-9199-4fe3-a033-818df666d6a8" name="Changes" comment="Many-to-many relationship">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/GroupProjectKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/GroupProjectWithPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/GroupProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/GroupProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/erjpa/entity/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="02-One-To-Many" />
+        <entry key="$PROJECT_DIR$" value="03-Many-To-Many" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669027202625</updated>
-      <workItem from="1669027203835" duration="10595000" />
+      <workItem from="1669027203835" duration="12332000" />
     </task>
     <task id="LOCAL-00001" summary="ER JPA Hands On">
       <created>1669030830844</created>
@@ -143,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669038287625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Many-to-many relationship">
+      <created>1669039272512</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669039272512</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +171,8 @@
     <MESSAGE value="ER JPA Hands On" />
     <MESSAGE value="One-to-one relationship" />
     <MESSAGE value="One-to-many relationship" />
-    <option name="LAST_COMMIT_MESSAGE" value="One-to-many relationship" />
+    <MESSAGE value="Many-to-many relationship" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many-to-many relationship" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -24,6 +24,10 @@ public class Student {
 
     private String major;
 
+    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name = "credential_id")
+    private UserCredential userCredential;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
@@ -76,10 +80,18 @@ public class Student {
         this.birthDate = birthDate;
     }
 
+    public UserCredential getUserCredential() {
+        return userCredential;
+    }
+
+    public void setUserCredential(UserCredential userCredential) {
+        this.userCredential = userCredential;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "studentId='" + studentId + '\'' +
+                "studentId=" + studentId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +

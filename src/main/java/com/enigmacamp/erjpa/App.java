@@ -1,12 +1,10 @@
 package com.enigmacamp.erjpa;
 
 import com.enigmacamp.erjpa.constants.Gender;
+import com.enigmacamp.erjpa.entity.Major;
 import com.enigmacamp.erjpa.entity.Student;
 import com.enigmacamp.erjpa.entity.UserCredential;
-import com.enigmacamp.erjpa.repository.AuthenticationRepository;
-import com.enigmacamp.erjpa.repository.AuthenticationRepositoryImpl;
-import com.enigmacamp.erjpa.repository.StudentRepository;
-import com.enigmacamp.erjpa.repository.StudentRepositoryImpl;
+import com.enigmacamp.erjpa.repository.*;
 import com.enigmacamp.erjpa.utils.JpaUtil;
 import jakarta.persistence.EntityManager;
 
@@ -16,8 +14,13 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         EntityManager entityManager = JpaUtil.getEntityManger();
         StudentRepository repository = new StudentRepositoryImpl(entityManager);
+        MajorRepository majorRepository = new MajorRepositoryImpl(entityManager);
+//        Major major = new Major();
+//        major.setMajorName("Accounting");
+//        majorRepository.create(major);
 
-        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
+
+//        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        UserCredential userCredential = new UserCredential();
 //        userCredential.setUserName("joko");
 //        userCredential.setPassword("12345");
@@ -28,19 +31,23 @@ public class App {
 //        student.setFirstName("Joko");
 //        student.setLastName("Anwar");
 //        student.setBirthDate(new Date());
-//        student.setMajor("Informatics");
+//        student.setMajor(major);
 //        student.setUserCredential(userCredential);
+//        userCredential.setStudent(student);
 //        repository.create(student);
+
+        Student student = repository.findOne(1);
+        System.out.println(student.getMajor().getMajorName());
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        userCredential.setStudent(student);
 //        student.setUserCredential(userCredential);
 //        authenticationRepository.create(userCredential);
 
-        UserCredential credential = authenticationRepository.findOne("joko");
-        System.out.println(credential.getUserName());
-        Thread.sleep(1000);
-        System.out.println(credential.getStudent().getFirstName());
+//        UserCredential credential = authenticationRepository.findOne("joko");
+//        System.out.println(credential.getUserName());
+//        Thread.sleep(1000);
+//        System.out.println(credential.getStudent().getFirstName());
 
 //        Student student = new Student();
 //        student.setStudentId(1);
@@ -50,6 +57,7 @@ public class App {
 //        student.setLastName("Anwar");
 //        student.setMajor("Informatics");
 //        repository.update(student);
+
 
     }
 }

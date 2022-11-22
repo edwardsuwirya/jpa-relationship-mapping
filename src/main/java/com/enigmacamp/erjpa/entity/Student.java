@@ -4,9 +4,7 @@ import com.enigmacamp.erjpa.constants.Gender;
 import jakarta.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "M_STUDENT")
@@ -41,7 +39,7 @@ public class Student {
             name = "M_STUDENT_PROJECT",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
-    private List<GroupProject> groupProjects =new ArrayList<>();
+    private Set<GroupProject> groupProjects = new HashSet<>();
 
     public long getStudentId() {
         return studentId;
@@ -99,12 +97,17 @@ public class Student {
         this.userCredential = userCredential;
     }
 
-    public List<GroupProject> getGroupProjects() {
+    public Set<GroupProject> getGroupProjects() {
         return groupProjects;
     }
 
-    public void setGroupProjects(List<GroupProject> groupProjects) {
+    public void setGroupProjects(Set<GroupProject> groupProjects) {
         this.groupProjects = groupProjects;
+    }
+
+    public void addGroupProject(GroupProject project) {
+        this.getGroupProjects().add(project);
+        project.getStudents().add(this);
     }
 
     @Override

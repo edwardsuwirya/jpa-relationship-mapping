@@ -3,7 +3,9 @@ package com.enigmacamp.erjpa.entity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "M_GROUP_PROJECT")
@@ -17,7 +19,7 @@ public class GroupProject {
     private String projectName;
 
     @ManyToMany(mappedBy = "groupProjects")
-    private List<Student> students = new ArrayList<>();
+    private Set<Student> students = new HashSet<>();
 
     public long getProjectId() {
         return projectId;
@@ -35,11 +37,11 @@ public class GroupProject {
         this.projectName = projectName;
     }
 
-    public List<Student> getStudents() {
+    public Set<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(Set<Student> students) {
         this.students = students;
     }
 }

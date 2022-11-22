@@ -16,14 +16,14 @@ public class App {
         EntityManager entityManager = JpaUtil.getEntityManger();
         StudentRepository repository = new StudentRepositoryImpl(entityManager);
         MajorRepository majorRepository = new MajorRepositoryImpl(entityManager);
-//        Major major = new Major();
-//        major.setMajorName("Accounting");
-//        majorRepository.create(major);
-
+        Major major = new Major();
+        major.setMajorName("Accounting");
+        majorRepository.create(major);
+//
         GroupProjectRepository groupProjectRepository = new GroupProjectRepositoryImpl(entityManager);
-//        GroupProject groupProject = new GroupProject();
-//        groupProject.setProjectName("React Framework Documentation");
-//        groupProjectRepository.create(groupProject);
+        GroupProject groupProject = new GroupProject();
+        groupProject.setProjectName("React Framework Documentation");
+        groupProjectRepository.create(groupProject);
 
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
@@ -32,26 +32,28 @@ public class App {
         userCredential.setPassword("12345");
 //        authenticationRepository.create(userCredential);
 
-//        Student student = new Student();
-//        student.setGender(Gender.M);
-//        student.setFirstName("Joko");
-//        student.setLastName("Anwar");
-//        student.setBirthDate(new Date());
-//        student.setMajor(major);
-//        student.setUserCredential(userCredential);
-//        userCredential.setStudent(student);
-//        student.getGroupProjects().add(groupProject);
+        Student student = new Student();
+        student.setGender(Gender.M);
+        student.setFirstName("Joko");
+        student.setLastName("Anwar");
+        student.setBirthDate(new Date());
+        student.setMajor(major);
+        student.setUserCredential(userCredential);
+        userCredential.setStudent(student);
+        student.getGroupProjects().add(groupProject);
 //        groupProject.getStudents().add(student);
-//        repository.create(student);
+//        Alternatif
+//        student.addGroupProject(groupProject);
+        repository.create(student);
 
-        GroupProject otherGroupProject = new GroupProject();
-        otherGroupProject.setProjectName("React Native Framework Documentation");
-        groupProjectRepository.create(otherGroupProject);
-
-        Student student = repository.findOne(1);
-        student.getGroupProjects().add(otherGroupProject);
-        otherGroupProject.getStudents().add(student);
-        repository.update(student);
+//        GroupProject otherGroupProject = new GroupProject();
+//        otherGroupProject.setProjectName("React Native Framework Documentation");
+//        groupProjectRepository.create(otherGroupProject);
+//
+//         student = repository.findOne(7);
+//        student.getGroupProjects().add(otherGroupProject);
+//        otherGroupProject.getStudents().add(student);
+//        repository.update(student);
 //        System.out.println(student.getMajor().getMajorName());
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);

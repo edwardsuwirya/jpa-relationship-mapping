@@ -36,12 +36,8 @@ public class Student {
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
 
-    @ManyToMany
-    @JoinTable(
-            name = "M_STUDENT_PROJECT",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id"))
-    private List<GroupProject> groupProjects =new ArrayList<>();
+    @OneToMany(mappedBy = "student",cascade = CascadeType.PERSIST)
+    private List<GroupProjectWithPoint> projectWithPoints =new ArrayList<>();
 
     public long getStudentId() {
         return studentId;
@@ -99,12 +95,12 @@ public class Student {
         this.userCredential = userCredential;
     }
 
-    public List<GroupProject> getGroupProjects() {
-        return groupProjects;
+    public List<GroupProjectWithPoint> getProjectWithPoints() {
+        return projectWithPoints;
     }
 
-    public void setGroupProjects(List<GroupProject> groupProjects) {
-        this.groupProjects = groupProjects;
+    public void setProjectWithPoints(List<GroupProjectWithPoint> projectWithPoints) {
+        this.projectWithPoints = projectWithPoints;
     }
 
     @Override

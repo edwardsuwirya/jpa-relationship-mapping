@@ -16,8 +16,8 @@ public class GroupProject {
     @Column(name = "project_name", nullable = false, length = 50)
     private String projectName;
 
-    @ManyToMany(mappedBy = "groupProjects")
-    private List<Student> students = new ArrayList<>();
+    @OneToMany(mappedBy = "groupProject",cascade = CascadeType.PERSIST)
+    private List<GroupProjectWithPoint> projectWithPoints =new ArrayList<>();
 
     public long getProjectId() {
         return projectId;
@@ -35,11 +35,11 @@ public class GroupProject {
         this.projectName = projectName;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public List<GroupProjectWithPoint> getProjectWithPoints() {
+        return projectWithPoints;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setProjectWithPoints(List<GroupProjectWithPoint> projectWithPoints) {
+        this.projectWithPoints = projectWithPoints;
     }
 }

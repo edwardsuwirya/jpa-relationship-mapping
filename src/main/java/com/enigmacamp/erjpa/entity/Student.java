@@ -24,8 +24,8 @@ public class Student {
 
     private String major;
 
-    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
-    @JoinColumn(name = "credential_id")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "credential_id",nullable = false)
     private UserCredential userCredential;
 
     @Temporal(TemporalType.DATE)

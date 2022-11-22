@@ -17,7 +17,7 @@ public class App {
         EntityManager entityManager = JpaUtil.getEntityManger();
         StudentRepository repository = new StudentRepositoryImpl(entityManager);
 
-        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
+//        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        UserCredential userCredential = new UserCredential();
 //        userCredential.setUserName("joko");
 //        userCredential.setPassword("12345");
@@ -32,15 +32,20 @@ public class App {
 //        student.setUserCredential(userCredential);
 //        repository.create(student);
 
+        Student student = repository.findOne(2);
+        entityManager.detach(student);
+        System.out.println(student.getUserCredential());
+
+
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        userCredential.setStudent(student);
 //        student.setUserCredential(userCredential);
 //        authenticationRepository.create(userCredential);
 
-        UserCredential credential = authenticationRepository.findOne("joko");
-        System.out.println(credential.getUserName());
-        Thread.sleep(1000);
-        System.out.println(credential.getStudent().getFirstName());
+//        UserCredential credential = authenticationRepository.findOne("joko");
+//        System.out.println(credential.getUserName());
+//        Thread.sleep(1000);
+//        System.out.println(credential.getStudent().getFirstName());
 
 //        Student student = new Student();
 //        student.setStudentId(1);

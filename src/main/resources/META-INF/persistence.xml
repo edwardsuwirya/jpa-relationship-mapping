@@ -9,7 +9,7 @@
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:postgresql://db-postgresql-enigma-do-user-279248-0.b.db.ondigitalocean.com:25060/defaultdb"/>
             <property name="javax.persistence.jdbc.user" value="doadmin"/>
-            <property name="javax.persistence.jdbc.password" value="AVNS_osr5skhflBYcea0gCMb"/>
+            <property name="javax.persistence.jdbc.password" value="AVNS_-1GgrPCBrRNN_4K2S1V"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

@@ -26,7 +26,7 @@ public class Student {
     @JoinColumn(name = "major_id")
     private Major major;
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "credential_id")
     private UserCredential userCredential;
 

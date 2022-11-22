@@ -15,29 +15,38 @@ public class App {
         EntityManager entityManager = JpaUtil.getEntityManger();
         StudentRepository repository = new StudentRepositoryImpl(entityManager);
         MajorRepository majorRepository = new MajorRepositoryImpl(entityManager);
-//        Major major = new Major();
-//        major.setMajorName("Accounting");
-//        majorRepository.create(major);
-
+        Major major = new Major();
+//        major.setMajorId(1);
+        major.setMajorName("Accounting");
+        majorRepository.create(major);
+        entityManager.detach(major);
+        boolean isExist = entityManager.contains(major);
+        System.out.println(isExist);
+        System.out.println(major);
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
-//        UserCredential userCredential = new UserCredential();
-//        userCredential.setUserName("joko");
-//        userCredential.setPassword("12345");
+        UserCredential userCredential = new UserCredential();
+        userCredential.setUserName("linda");
+        userCredential.setPassword("12345");
 //        authenticationRepository.create(userCredential);
 
-//        Student student = new Student();
-//        student.setGender(Gender.M);
-//        student.setFirstName("Joko");
-//        student.setLastName("Anwar");
-//        student.setBirthDate(new Date());
-//        student.setMajor(major);
-//        student.setUserCredential(userCredential);
-//        userCredential.setStudent(student);
-//        repository.create(student);
+        Student student = new Student();
+        student.setGender(Gender.M);
+        student.setFirstName("Linda");
+        student.setLastName("Kurniawan");
+        student.setBirthDate(new Date());
+        student.setMajor(major);
+        student.setUserCredential(userCredential);
+        userCredential.setStudent(student);
+        repository.create(student);
 
-        Student student = repository.findOne(1);
-        System.out.println(student.getMajor().getMajorName());
+        Student s = repository.findOne(1);
+        System.out.println(s.getMajor().getMajorName());
+
+//        Major major1 = majorRepository.findOne(1);
+//        for (Student student1 : major1.getStudentList()) {
+//            System.out.println(student1.getUserCredential());
+//        }
 
 //        AuthenticationRepository authenticationRepository = new AuthenticationRepositoryImpl(entityManager);
 //        userCredential.setStudent(student);

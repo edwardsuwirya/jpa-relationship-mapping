@@ -12,8 +12,7 @@ public class UserCredential {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "userCredential")
     Student student;
 
     public String getUserName() {
